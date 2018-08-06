@@ -21,9 +21,13 @@ void setup()
   
 void loop() 
 { 
-  for(angle_y = 0; angle_y < 180; angle_y += 2)    // command to move from 0 degrees to 180 degrees 
-  {  servo_test1.write(angle_y);                 //command to rotate the servo to the specified angle
+  int count = 0;
+  for(angle_y = 45; angle_y < 135; angle_y += 1)
+// command to move from 0 degrees to 180 degrees 
+  {  servo_test1.write(angle_y);   
+//command to rotate the servo to the specified angle
      delay(5);
+     count+=1;
     for(angle_x = 0; angle_x<180; angle_x+=2)     // command to move from 180 degrees to 0 degrees 
     {                                
       servo_test.write(angle_x);
@@ -45,7 +49,7 @@ void loop()
       // Prints the distance on the Serial Monitor
       Serial.print(angle_x);   
       Serial.print(',');
-      Serial.print(angle_y);
+      Serial.print(count);
       Serial.print(',');     
       Serial.println(distance);
       delay(400);                                                 
@@ -55,9 +59,9 @@ void loop()
       servo_test.write(angle_x);              //command to rotate the servo to the specified angle
       delay(5);                       
      } 
-                            
+                     
   }
-   
+ count = 0  
 }
 
 
